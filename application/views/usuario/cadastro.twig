@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Usuário - Cecon</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		{% block css %}
+			<link rel="icon" type="image/png" href="{{ base_url('images/icon/icon-blue.png') }}" />
+			<link rel="shortcut icon" type="image/png" href="{{ base_url('images/icon/icon-blue.png') }}" />
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/libs/bootstrap-4.0.0/css/bootstrap.min.css') }}"/>
+			<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"/>
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/libs/izitoast/css/iziToast.min.css') }}"/>
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/libs/ladda/ladda.min.css') }}"/>
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/libs/select2/css/select2.min.css') }}" />
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/libs/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') }}" />
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/css/commons/base.css') }}"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<link rel="stylesheet" type="text/css" href="{{ base_url('assets/css/commons/formulario.css') }}"/>
+		{% endblock css %}
+
+	</head>
+	<body data-baseurl="{{ base_url() }}">
+
+		<div class="div-principal container">
+			<div class="div-body">
+				{% include "usuario/template_form.twig" %}
+			</div>
+		</div>
+
+
+		{% block js %}
+			<script src="{{ base_url('assets/libs/jquery-3.3.1/jquery-3.3.1.min.js') }}"></script>
+			<script src="{{ base_url('assets/libs/bootstrap-4.0.0/js/bootstrap.min.js') }}"></script>
+			<script src="{{ base_url('assets/libs/izitoast/js/iziToast.min.js') }}"></script>
+			<script src="{{ base_url('assets/libs/ladda/spin.min.js') }}"></script>
+			<script src="{{ base_url('assets/libs/ladda/ladda.min.js') }}"></script>
+			<script src="{{ base_url('assets/js/commons/requester.js') }}"></script>
+			<script src="{{ base_url('assets/js/commons/base.js') }}"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/locale/pt-br.js"></script>
+			<script src="{{ base_url('assets/libs/select2/js/select2.min.js') }}"></script>
+			<script src="{{ base_url('assets/libs/select2/js/pt-br.js') }}"></script>
+			<script src="{{ base_url('assets/libs/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js') }}"></script>
+            <script src="{{ base_url('assets/js/usuario/cadastro.js') }}"></script>
+		{% endblock js %}
+	</body>
+</html>

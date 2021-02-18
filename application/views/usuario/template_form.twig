@@ -1,0 +1,146 @@
+{% embed 'templates/formulario.twig' %}
+	{% block body_form %}
+
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+			<span style="font-size: 18px;">
+				<i class="far fa-user"></i>
+				Cadastro de usuário</span>
+			<hr>
+		</div>
+
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+			<label>Nome</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="fas fa-edit"></i>
+					</div>
+				</div>
+				<input type="text" class="form-control" id="nome" data-bind="nome">
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>E-mail</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="far fa-envelope"></i>
+					</div>
+				</div>
+				<input type="text" class="form-control" id="email" data-bind="email">
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>Sexo</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="fas fa-venus-mars"></i>
+					</div>
+				</div>
+				<select class="form-control" id="sexo" data-bind="sexo">
+					<option value="Masculino">Masculino</option>
+					<option value="Feminino">Feminino</option>
+					<option value="Outro">Outro</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>Telefone</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="fas fa-mobile-alt"></i>
+					</div>
+				</div>
+				<input type="text" class="form-control" id="telefone" data-bind="telefone">
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>RG</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="fas fa-id-card"></i>
+					</div>
+				</div>
+				<input type="text" class="form-control" id="rg" data-bind="rg">
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>CPF</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="far fa-id-card"></i>
+					</div>
+				</div>
+				<input type="text" class="form-control" id="cpf" data-bind="cpf">
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>Data de nascimento</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="far fa-calendar-alt"></i>
+					</div>
+				</div>
+				<input class="form-control" id="data_nascimento" data-bind="data_nascimento"/>
+			</div>
+		</div>
+
+		<div class="col-12">
+			<hr>
+		</div>
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>Usuário</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="fas fa-user"></i>
+					</div>
+				</div>
+				<input type="text" class="form-control" id="usuario" data-bind="usuario">
+			</div>
+		</div>
+
+		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<label>Senha</label>
+			<div class="input-group">
+				<div class="input-group-prepend">
+					<div class="input-group-text">
+						<i class="fas fa-lock"></i>
+					</div>
+				</div>
+				<input type="password" class="form-control" id="senha" data-bind="senha" minlength="6">
+			</div>
+           
+		</div>
+
+		{% if not id_usuario %}
+
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+				<label>Repetir senha</label>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<div class="input-group-text">
+							<i class="fas fa-lock"></i>
+						</div>
+					</div>
+					<input type="password" class="form-control" id="repetir_senha" data-bind="repetir_senha" minlength="6">
+				</div>
+                 <span class="span-repetir-senha" style="display: none; color: red;">As senhas não combinam</span>
+			</div>
+
+		{% endif %}
+
+
+	{% endblock body_form %}
+{% endembed %}

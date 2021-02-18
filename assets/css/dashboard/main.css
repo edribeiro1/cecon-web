@@ -1,0 +1,80 @@
+/* .bloco-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.button-bloco{
+    margin-bottom: 30px;
+    font-size: 30px;
+    max-width: 623px;
+    width: 100%;
+    white-space: normal;
+    border-radius: 20px;
+    min-height: 80px;
+    height: auto;
+}    */
+
+.button-bloco {
+    font-size: 15px;
+    white-space: normal;
+    border-radius: 50px;
+    height: auto;
+    font-weight: 800;
+    margin-top: 40px;
+    min-height: 60px;
+    width: 100%;
+    /* background-color: white; */
+    /* color: #202020; */
+    /* border: 2px solid; */
+    /* border-color: #5b5b5b; */
+}    
+
+.bloco-dashboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-direction: row;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.div-bloco {
+    margin-bottom: 30px;
+    font-size: 27px;
+    min-height: 250px;
+    white-space: normal;
+    border-radius: 5px;
+    padding: 36px 19px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px 0px #b6b6b6;
+    border: solid 1px #cbcbcb;
+}
+
+.div-bloco>i {
+    font-size: 70px;
+    color: #02243b;
+}
+
+.div-principal {
+    min-height: 58vh;
+}
+
+.button-bloco:hover {
+    /* color:#db522c; */
+    background-color: #db522c;
+    border-color: #d2390e;
+}
+
+
+@media (max-width: 767px) {
+    .bloco-dashboard {
+        justify-content: center;
+    }
+
+}

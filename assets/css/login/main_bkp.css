@@ -1,0 +1,133 @@
+/* CORES 
+#02243b AZUL
+#db522c LARANJA
+*/
+
+@font-face {font-family: "Humnst777 BT";
+    src: url("../../font/humanist-777-bt.eot"); /* IE9*/
+    src: url("../../font/humanist-777-bt.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../../font/humanist-777-bt.woff2") format("woff2"), /* chrome firefox */
+    url("../../font/humanist-777-bt.woff") format("woff"), /* chrome firefox */
+    url("../../font/humanist-777-bt.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("../../font/humanist-777-bt.svg#Humanist777BT") format("svg"); /* iOS 4.1- */
+}
+
+body {
+    font-family: 'Humnst777 BT', sans-serif !important;
+   /* font-family: 'Lato', sans-serif !important; */
+}
+
+.container-login {
+    height: 100vh;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    background-image: url('../../../images/background/background-1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+ }
+
+.panel-login {
+   background-color: white;
+   border-radius: 5px;
+   padding: 0px;
+}
+
+.input-text {
+    font-size: 0.750em;
+}
+
+/* .foto-login {
+   background-image: url('../../../images/login/transito_blur_8.jpg');
+   height: 100vh;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   border-top-left-radius: 4px;
+   border-bottom-left-radius: 4px;
+}    */
+
+.header-login {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+
+.logo {
+   background-image: url('../../../images/logo/logo.png');
+   height: 170px;
+   width: 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: contain;
+   margin-bottom: 20px;
+}   
+
+.form-login{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   padding: 40px;
+   width: auto;
+   background-color: #ffffff;
+   border-radius: 10px;
+   min-width: 500px;
+   width: 500px;
+   color: #292929;
+   box-shadow: 0px 0px 21px 9px #253a4e45;
+}
+
+label {
+    margin-bottom: 0.1rem;
+}
+
+
+
+.form-control {
+    border-radius: 0px;
+    border: none;
+    border-bottom: 2px solid #02243b;
+    padding: 2px;
+}
+
+.form-control:focus {
+    border-bottom: 2px solid #db522c;
+    box-shadow: none;
+}
+
+.recuperar-senha {
+   color: #02243b;
+   text-align: center;
+   margin-top: 20px;
+   cursor: pointer;
+}
+
+.btn-orange {
+   color: #fff;
+   background-color: #db522c;
+   border-color: #e13e10;
+}
+
+input:-webkit-autofill {
+   -webkit-box-shadow: 0 0 0 30px white inset;
+   box-shadow: 0 0 0 30px white inset;
+}
+
+.input-erro {
+    border-bottom: 2px solid #ff0000;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+}

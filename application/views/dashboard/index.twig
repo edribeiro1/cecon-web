@@ -1,0 +1,33 @@
+{% extends 'commons/base.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link rel="stylesheet" type="text/css" href="{{ base_url('assets/css/dashboard/main.css') }}"/>
+{% endblock css %}
+
+{% block js %}
+	{{ parent() }}
+	<script src="{{ base_url('assets/js/dashboard/main.js') }}"></script>
+{% endblock js %}
+
+{% set titulo_tela = "Dashboard" %}
+
+{% block header_tela %}
+    {% if administrador %}
+        {% include 'dashboard/templates/header_administrador.twig' %}
+    {% else %}
+        {% include 'dashboard/templates/header_usuario.twig' %}
+    {% endif %}
+{% endblock header_tela %}
+
+
+{% block body %}
+    {% if administrador %}
+        {% include 'dashboard/templates/body_administrador.twig' %}
+    {% else %}
+        {% include 'dashboard/templates/body_usuario.twig' %}
+    {% endif %}
+{% endblock body %}
+
+
+

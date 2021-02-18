@@ -1,0 +1,23 @@
+<nav class="navbar">
+    <div class="container" style="display: block; padding: 0px;">
+
+        <div class="pull-left">
+            <div class="logo-navbar">
+                <a class="" href="{{ base_url('dashboard')}}">
+                    <img  height="60" src="{{ base_url('images/icon/icon-orange.png') }}">
+                </a>
+            </div>
+        </div>
+        <div class="navbar-group-div pull-right">
+
+            <a class="link-usuario" href="{{ base_url('usuario/editar/') ~ id_usuario}}">
+                <i class="fas fa-user-circle fa-2x"></i>
+                <span style="margin-left: 10px;">{{ nome|split(' ')[0] }}</span>
+            </a>
+
+            <a class="logout" href="{{ base_url('login/sair')}}"><i class="fas fa-sign-out-alt"></i>Sair</a>
+
+        </div>
+    </div>
+      
+</nav>
