@@ -1,21 +1,12 @@
 {
-	"description": "The CodeIgniter framework",
-	"name": "codeigniter/framework",
+	"description": "Cecon - Centro de educação continuada",
+	"name": "web/cecon",
 	"type": "project",
-	"homepage": "https://codeigniter.com",
+	"homepage": "http://ec2-18-231-42-88.sa-east-1.compute.amazonaws.com/web-cecon/",
 	"license": "MIT",
-	"support": {
-		"forum": "http://forum.codeigniter.com/",
-		"wiki": "https://github.com/bcit-ci/CodeIgniter/wiki",
-		"slack": "https://codeigniterchat.slack.com",
-		"source": "https://github.com/bcit-ci/CodeIgniter"
-	},
 	"require": {
 		"php": ">=5.3.7",
         "kenjis/codeigniter-ss-twig": "^0.2.1",
         "vlucas/phpdotenv": "^4.2"
-	},
-	"suggest": {
-		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	}
 }
