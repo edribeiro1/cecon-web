@@ -16,7 +16,7 @@
 						<i class="fas fa-edit"></i>
 					</div>
 				</div>
-				<input type="text" class="form-control" id="nome" data-bind="nome">
+				<input type="text" class="form-control" id="nome" data-bind="nome" required>
 			</div>
 		</div>
 
@@ -56,7 +56,7 @@
 						<i class="fas fa-mobile-alt"></i>
 					</div>
 				</div>
-				<input type="text" class="form-control" id="telefone" data-bind="telefone">
+				<input type="text" class="form-control" id="telefone" data-bind="telefone" required>
 			</div>
 		</div>
 
@@ -92,14 +92,14 @@
 						<i class="far fa-calendar-alt"></i>
 					</div>
 				</div>
-				<input class="form-control" id="data_nascimento" data-bind="data_nascimento"/>
+				<input class="form-control datetimepicker" id="data_nascimento" data-bind="data_nascimento"/ required>
 			</div>
 		</div>
 
 		<div class="col-12">
 			<hr>
 		</div>
-		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
 			<label>Usuário</label>
 			<div class="input-group">
 				<div class="input-group-prepend">
@@ -107,11 +107,11 @@
 						<i class="fas fa-user"></i>
 					</div>
 				</div>
-				<input type="text" class="form-control" id="usuario" data-bind="usuario">
+				<input type="text" class="form-control" id="usuario" data-bind="usuario" required>
 			</div>
 		</div>
 
-		<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+		<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
 			<label>Senha</label>
 			<div class="input-group">
 				<div class="input-group-prepend">
@@ -119,14 +119,14 @@
 						<i class="fas fa-lock"></i>
 					</div>
 				</div>
-				<input type="password" class="form-control" id="senha" data-bind="senha" minlength="6">
+				<input type="password" class="form-control" id="senha" data-bind="senha" minlength="6" required>
 			</div>
            
 		</div>
 
 		{% if not id_usuario %}
 
-			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
 				<label>Repetir senha</label>
 				<div class="input-group">
 					<div class="input-group-prepend">
@@ -134,10 +134,19 @@
 							<i class="fas fa-lock"></i>
 						</div>
 					</div>
-					<input type="password" class="form-control" id="repetir_senha" data-bind="repetir_senha" minlength="6">
+					<input type="password" class="form-control" id="repetir_senha" data-bind="repetir_senha" minlength="6" required>
 				</div>
                  <span class="span-repetir-senha" style="display: none; color: red;">As senhas não combinam</span>
 			</div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="termos_de_uso" checked="true">
+                    <label class="form-check-label" for="termos_de_uso">
+                        Li e concordo com os <a href="{{base_url('TermosDeUso')}}" target="_blank">termos de uso</a>
+                    </label>
+                </div>
+            </div>
 
 		{% endif %}
 

@@ -13,7 +13,7 @@ class Login extends CI_Controller
     {
         if (($this->session->userdata('session_id'))) {
             redirect('Dashboard');
-        } else{
+        } else {
             $this->twig->display('login/index');
         }
     }
@@ -39,8 +39,18 @@ class Login extends CI_Controller
     {
         if (($this->session->userdata('session_id'))) {
             redirect('Dashboard');
-        } else{
+        } else {
             $this->twig->display('usuario/cadastro');
+        }
+    }
+
+    public function salvar()
+    {
+        $this->load->model('usuario_model');
+        if ($this->usuario_model->save() ) {
+            send(200, null, 'Sucesso ao cadastrar');
+        } else {
+            send(400, null, 'Erro ao cadastrar');
         }
     }
 }
