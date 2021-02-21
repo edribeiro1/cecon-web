@@ -14,7 +14,7 @@ Demonstração
 *******************
 
 `Demonstração do sistema
-<http://ec2-18-231-42-88.sa-east-1.compute.amazonaws.com/web-cecon>`_.
+<http://cecon.devflows.com.br>`_.
 
 Usuário: convidado
 Senha: 123456
