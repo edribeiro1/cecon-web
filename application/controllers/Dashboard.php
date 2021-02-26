@@ -11,15 +11,8 @@ class Dashboard extends MY_Controller
 
     public function index()
     {
-        $this->twig->display('dashboard/index');
+        $dados = $this->dashboard_model->dadosIniciais();
+        $this->twig->display('dashboard/index', $dados);
     }
 
-    public function dadosIniciais()
-    {
-        $dados = $this->dashboard_model->dadosIniciais();
-        if ($dados) {
-            send(200, $dados);
-        }
-        send(400, null, 'Erro em consultar os dados do usuário');
-    }
 }

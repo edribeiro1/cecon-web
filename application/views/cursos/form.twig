@@ -1,0 +1,183 @@
+{% extends 'commons/base.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ base_url('assets/libs/select2/css/select2.min.css') }}" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="{{ base_url('assets/css/commons/formulario.css') }}"/>
+{% endblock css %}
+
+{% block js %}
+	{{ parent() }}
+	<script src="{{ base_url('assets/libs/select2/js/select2.min.js') }}"></script>
+	<script src="{{ base_url('assets/libs/select2/js/pt-br.js') }}"></script>
+	<script src="{{ base_url('assets/js/commons/formulario.js') }}"></script>
+	<script src="{{ base_url('assets/js/usuario/main.js') }}"></script>
+{% endblock js %}
+
+{% set titulo_tela = "Cadastros de usuário" %}
+{% set form_url = "usuario" %}
+{% set chave_id = "id" %}
+
+{% block header_tela %}
+
+    <h1 style="color: #db522c;">Usuário</h1>
+{% endblock header_tela %}
+
+{% block body %}
+    {% embed 'templates/formulario.twig' %}
+        {% block body_form %}
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <span style="font-size: 18px;">
+                    <i class="far fa-user"></i>
+                    Cadastro de usuário</span>
+                <hr>
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                <label>Nome</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-edit"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="nome" data-bind="nome" required>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+                <label>E-mail</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="far fa-envelope"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="email" data-bind="email">
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+                <label>Sexo</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-venus-mars"></i>
+                        </div>
+                    </div>
+                    <select class="form-control" id="sexo" data-bind="sexo">
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+                <label>Telefone</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="telefone" data-bind="telefone" required>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+                <label>RG</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="rg" data-bind="rg">
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+                <label>CPF</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="far fa-id-card"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="cpf" data-bind="cpf">
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 form-group">
+                <label>Data de nascimento</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    <input class="form-control datetimepicker" id="data_nascimento" data-bind="data_nascimento"/ required>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                <label>Usuário</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="usuario" data-bind="usuario" required>
+                </div>
+            </div>
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                <label>Senha</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                    </div>
+                    <input type="password" class="form-control" id="senha" data-bind="senha" minlength="6" required>
+                </div>
+            
+            </div>
+
+            {% if not id_usuario %}
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                    <label>Repetir senha</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                        </div>
+                        <input type="password" class="form-control" id="repetir_senha" data-bind="repetir_senha" minlength="6" required>
+                    </div>
+                    <span class="span-repetir-senha" style="display: none; color: red;">As senhas não combinam</span>
+                </div>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="termos_de_uso" checked="true">
+                        <label class="form-check-label" for="termos_de_uso">
+                            Li e concordo com os <a href="{{base_url('TermosDeUso')}}" target="_blank">termos de uso</a>
+                        </label>
+                    </div>
+                </div>
+
+            {% endif %}
+
+
+        {% endblock body_form %}
+    {% endembed %}
+
+{% endblock body %}

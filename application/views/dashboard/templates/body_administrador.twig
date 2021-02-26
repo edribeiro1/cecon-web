@@ -1,16 +1,38 @@
 
 <div class="row">
+
     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-        <div class="div-bloco">
-            <i class="fas fa-user-tie"></i>
-            <button id="btn_usuarios" class="btn btn-blue button-bloco">Usuários</button>
-        </div>
-    </div>
+        <a class="ancora-bloco" href="{{ base_url('usuario/lista') }}">
+            <div class="div-bloco">
+                <i class="fas fa-user-tie"></i>
+                <span class="span-bloco">Usuários</span>
+            </div>
+        </a>
+	</div>
+	<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <a class="ancora-bloco" href="{{ base_url('cursos') }}">
+            <div class="div-bloco">
+                <i class="fas fa-pencil-alt"></i>
+                <span class="span-bloco">Cursos</span>
+            </div>
+        </a>
+	</div>
+
     <div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
-        <div class="div-bloco">
-            <i class="fas fa-pencil-alt"></i>
-            <button id="btn_cursos" class="btn btn-blue button-bloco">Cursos</button>
-        </div>
-    </div>
+        <a class="ancora-bloco" href="{{ base_url('microempreendedor') }}">
+            <div class="div-bloco">
+                <i class="fas fa-user-tie"></i>
+                <span class="span-bloco">Vizualizar tela de Microempreendedor</span>
+            </div>
+        </a>
+	</div>
+	<div class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3">
+        <a class="ancora-bloco" href="{{ base_url('material') }}">
+            <div class="div-bloco">
+                <i class="fas fa-pencil-alt"></i>
+                <span class="span-bloco">Vizualizar tela  de Material de divulgação</span>
+            </div>
+        </a>
+	</div>
     
 </div>

@@ -370,6 +370,20 @@ body {
     padding: 0px;
     min-height: 110px;
     align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+#editar_tela {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 0px;
+}
+
+.edicao-tela {
+    display: none;
 }
 
 

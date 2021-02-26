@@ -1,0 +1,25 @@
+{% extends 'commons/base.twig' %}
+
+{% block css %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ base_url('assets/css/commons/formulario.css') }}"/>
+{% endblock css %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="{{ base_url('assets/js/commons/formulario.js') }}"></script>
+    <script src="{{ base_url('assets/js/cursos/main.js') }}"></script>
+{% endblock js %}
+
+{% set titulo_tela = "Lista de cursos" %}
+{% set form_url = "cursos" %}
+{% set chave_id = "id" %}
+
+
+{% block header_tela %}
+    <h1 style="color: #db522c;">Lista de cursos</h1>
+{% endblock header_tela %}
+
+{% block body %}
+   {% include 'templates/lista.twig' %}
+{% endblock body %}
