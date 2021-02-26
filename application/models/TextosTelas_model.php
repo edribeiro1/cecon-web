@@ -5,7 +5,7 @@ class TextosTelas_model extends CI_Model
 {
     public function getTemplate($idTela)
     {
-        $this->db->select('titulo, corpo');
+        $this->db->select('id as id_tela, titulo, corpo');
         $this->db->where('id', $idTela);
         $result = $this->db->get('telas');
 

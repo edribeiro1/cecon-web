@@ -74,6 +74,7 @@ class Usuario_model extends CI_Model
     {   
         $params = getContents();
 
+        $this->db->where('administrador', 0);
         $this->db->where('deletado IS NULL', null, false);
         $total = $this->db->count_all_results('usuarios');
 
@@ -81,6 +82,7 @@ class Usuario_model extends CI_Model
 
             $this->db->select('id, usuario, nome, email, sexo, rg, cpf, inscricao, DATE_FORMAT(data_nascimento, "%d/%m/%Y") AS data_nascimento, DATE_FORMAT(data_registro, "%d/%m/%Y %H:%i:%s") AS data_registro');
             $this->db->where('deletado IS NULL', null, false);
+            $this->db->where('administrador', 0);
             if(isset($params['sort']) && isset($params['order'])) {
                 $this->db->order_by($params['sort'], $params['order']);
             }
