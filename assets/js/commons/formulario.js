@@ -3,9 +3,8 @@ let urlForm = $('#config-form').attr('data-url');
 
 var TABLE = {
     init: function (config) {
-        var idIndex = config.uniqueId;
         $('#lista-bootstrap-table').bootstrapTable({
-            url: REQUESTER.gerarUrl(urlForm + '/lista'),
+            url: REQUESTER.gerarUrl(urlForm + '/listar'),
             locale: 'pt-BR',
             pagination: true,
             sidePagination: 'server',
@@ -160,32 +159,40 @@ $(document).ready(function () {
         if (id > 0 && chaveId) {
             dados[chaveId] = id;
         }
-        
-        REQUESTER.enviar(REQUESTER.gerarUrl(urlForm + '/salvar'), dados, {
-            type: 'POST',
-            success: function (data) {
+
+        if (validarFormulario()) {
+            REQUESTER.enviar(REQUESTER.gerarUrl(urlForm + '/salvar'), dados, {
+                type: 'POST',
+                success: function (data) {
+                        REQUESTER.izitoast({
+                            type: 'success',
+                            title: 'Sucesso',
+                            message: data.hasOwnProperty('message') ? data.message : 'Sucesso!',
+                            onClosing: () => {
+                                window.location.href = baseUrl + urlForm + '/lista';
+                            }
+                        });
+                },
+                fnerror: function (xhr) {
+                    error = xhr.hasOwnProperty('responseJSON') && xhr.responseJSON.hasOwnProperty('campos') ? xhr.responseJSON.campos : [];
+    
+                    for (i in error) {
+                        $('#'+error[i]).addClass('input-erro');
+                    }
                     REQUESTER.izitoast({
-                        type: 'success',
-                        title: 'Sucesso',
-                        message: 'Sucesso!',
+                        type: 'error',
+                        title: 'Erro',
+                        message: 'Preencha os campos obrigatórios!',
                     });
-                    window.location.href = baseUrl + urlForm + '/lista';
-            },
-            fnerror: function (xhr) {
-                error = xhr.hasOwnProperty('responseJSON') && xhr.responseJSON.hasOwnProperty('campos') ? xhr.responseJSON.campos : [];
-
-                for (i in error) {
-                    $('#'+error[i]).addClass('input-erro');
+    
+                    stopLaddaButtons();
                 }
-                REQUESTER.izitoast({
-                    type: 'error',
-                    title: 'Erro',
-                    message: 'Preencha os campos obrigatórios!',
-                });
-
-                stopLaddaButtons();
-            }
-        });
+            });
+        } else {
+            stopLaddaButtons();
+        }
+        
+       
     });
 
     $("#btn-cancelar-formulario").on('click', function () {
@@ -215,6 +222,30 @@ $(document).ready(function () {
     });
 });
 
+
+function validarFormulario() {
+    let valido = true;
+    $("[data-bind]", "#base-formulario").each(function () {
+        if ($(this).attr('required')) {
+            let value = $(this).val().trim();
+            if (!value || value.length == 0) {
+                valido = false;
+                $(this).addClass('input-erro');
+            }
+        }
+    });
+
+    if (!valido) {
+        REQUESTER.izitoast({
+            type: 'error',
+            title: '',
+            message: 'Preencha os campos obrigatórios!',
+        });
+        return false;
+    }
+
+    return valido;
+}
 
 function pegarDadosFormulario() {
     let dados = {};

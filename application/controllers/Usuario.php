@@ -9,7 +9,7 @@ class Usuario extends MY_Controller
         $this->load->model('usuario_model');
     }
 
-    public function index()
+    public function lista()
     {
         $this->twig->display('usuario/lista');
     }
@@ -21,11 +21,11 @@ class Usuario extends MY_Controller
 
     public function editar($id)
     {
-        $this->twig->display('usuario/form', array('id'=> $id));
+        $this->twig->display('usuario/form', ['id'=> $id]);
     }
 
-    public function lista()
+    public function listar()
     {
-        $this->usuario_model->lista();
+        $this->usuario_model->listar();
     }
 }

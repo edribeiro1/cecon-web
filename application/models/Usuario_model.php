@@ -3,17 +3,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Usuario_model extends CI_Model
 {
-
     private $fields = [
-        'usuario' =>                 ['type' => 'varchar', 'required' => true],
-        'senha' =>                   ['type' => 'varchar', 'required' => true],
-        'nome' =>                    ['type' => 'varchar', 'required' => true],
-        'email' =>                    ['type' => 'varchar', 'required' => false],
-        'sexo' =>                     ['type' => 'varchar', 'required' => false],
-        'telefone' =>               ['type' => 'varchar', 'required' => false],
-        'rg' =>                         ['type' => 'varchar', 'required' => false],
-        'cpf' =>                       ['type' => 'varchar', 'required' => false],
-        'inscricao' =>              ['type' => 'varchar', 'required' => false],
+        'usuario' =>         ['type' => 'varchar', 'required' => true],
+        'senha' =>           ['type' => 'varchar', 'required' => true],
+        'nome' =>            ['type' => 'varchar', 'required' => true],
+        'email' =>           ['type' => 'varchar', 'required' => false],
+        'sexo' =>            ['type' => 'varchar', 'required' => false],
+        'telefone' =>        ['type' => 'varchar', 'required' => false],
+        'rg' =>              ['type' => 'varchar', 'required' => false],
+        'cpf' =>             ['type' => 'varchar', 'required' => false],
+        'inscricao' =>       ['type' => 'varchar', 'required' => false],
         'data_nascimento' => ['type' => 'date', 'required' => false]
     ];
 
@@ -21,10 +20,9 @@ class Usuario_model extends CI_Model
     {
         $formattedData = [];
 
-        foreach($data as $key => $value) {
+        foreach ($data as $key => $value) {
             if (isset($this->fields[$key])) {
-
-                if($value && strlen(trim($value)) > 0) {
+                if ($value && strlen(trim($value)) > 0) {
                     if ($key == 'senha') {
                         $value = md5(trim($value));
                     }
@@ -53,6 +51,17 @@ class Usuario_model extends CI_Model
         }
     }
 
+    public function editar($id = false)
+    {
+        if (validarId($id)) {
+            $this->db->set($data);
+            $this->db->where('id', $id);
+            return $this->db->update('usuarios');
+        } 
+
+        return false;
+    }
+
     public function save($id = false)
     {
         $data = getContents();
@@ -70,8 +79,8 @@ class Usuario_model extends CI_Model
         return false;
     }
 
-    public function lista()
-    {   
+    public function listar()
+    {
         $params = getContents();
 
         $this->db->where('administrador', 0);
@@ -79,11 +88,10 @@ class Usuario_model extends CI_Model
         $total = $this->db->count_all_results('usuarios');
 
         if ($total) {
-
             $this->db->select('id, usuario, nome, email, sexo, rg, cpf, inscricao, DATE_FORMAT(data_nascimento, "%d/%m/%Y") AS data_nascimento, DATE_FORMAT(data_registro, "%d/%m/%Y %H:%i:%s") AS data_registro');
             $this->db->where('deletado IS NULL', null, false);
             $this->db->where('administrador', 0);
-            if(isset($params['sort']) && isset($params['order'])) {
+            if (isset($params['sort']) && isset($params['order'])) {
                 $this->db->order_by($params['sort'], $params['order']);
             }
             if (isset($params['limit']) && isset($params['offset'])) {

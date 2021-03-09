@@ -100,13 +100,14 @@ function formataSegundosParaHorario($segundos = 0)
 
 
 
-function calculaDiferencaData($data1, $data2) {
+function calculaDiferencaData($data1, $data2)
+{
     $data1 = formataDataParaUtc($data1, 'UTC', false);
     $data2 = formataDataParaUtc($data2, 'UTC', false);
     if ($data1 && $data2) {
         $diferenca = $data1->getTimestamp() - $data2->getTimestamp();
 
-        if ($diferenca < 0 ) {
+        if ($diferenca < 0) {
             $diferenca *= -1;
         }
 
@@ -115,9 +116,8 @@ function calculaDiferencaData($data1, $data2) {
     return '00:00:00';
 }
 
-function calculaDiferencaHorario($horaInicial, $horaFinal, $returnHorario = true) 
+function calculaDiferencaHorario($horaInicial, $horaFinal, $returnHorario = true)
 {
-
     if (is_numeric($horaInicial)) {
         $horaInicial = formataSegundosParaHorario($horaInicial);
     }
@@ -171,6 +171,21 @@ function validarId($idOuArrayAssoc = null, $chave = null)
     return false;
 }
 
+function validarString($idOuArrayAssoc = null, $chave = null)
+{
+    if (is_array($idOuArrayAssoc)) {
+        if (isset($idOuArrayAssoc[$chave]) &&
+            $idOuArrayAssoc[$chave] &&
+            is_string($idOuArrayAssoc[$chave]) &&
+            strlen($idOuArrayAssoc[$chave]) > 0) {
+            return true;
+        }
+    } elseif ($idOuArrayAssoc && is_string($idOuArrayAssoc) && strlen($idOuArrayAssoc) > 0) {
+        return true;
+    }
+
+    return false;
+}
 
 function getContents($paramentro = false)
 {
@@ -192,7 +207,6 @@ function getContents($paramentro = false)
     }
 
     if ($contents && is_array($contents) && count($contents) > 0) {
-
         if ($paramentro && strlen($paramentro) > 0) {
             if (isset($contents[$paramentro])) {
                 return $contents[$paramentro];
