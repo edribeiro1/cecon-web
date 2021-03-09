@@ -15,7 +15,7 @@ class MY_Controller extends CI_Controller {
 
         $this->idUsuario = $this->session->userdata('id_usuario');
         $this->administrador = $this->session->userdata('administrador') == 1 ? true : false;
-	}
+    }
 }
 
 ?>

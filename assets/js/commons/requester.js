@@ -34,7 +34,7 @@ var REQUESTER = {
           class: 'iziToastPadrao',
           position: 'topCenter',
           close: true,
-          timeout: 3000,
+          timeout: 1500,
           buttons: [],
        }, config);
  

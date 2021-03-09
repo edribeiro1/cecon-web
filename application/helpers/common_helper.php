@@ -36,6 +36,11 @@ function formataDataParaUtc($data, $timezone = "UTC", $toFormat = 'Y-m-d H:i:s',
     return false;
 }
 
+function formataDataSQL($colunaData)
+{
+    return "DATE_FORMAT(CONVERT_TZ($colunaData, '+00:00', '-03:00'), '%d/%m/%Y %H:%i:%s') AS $colunaData";
+}
+
 function formataHorarioParaSegundos($horario)
 {
     $segundos = 0;

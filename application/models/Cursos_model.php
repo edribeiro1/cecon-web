@@ -7,12 +7,29 @@ class Cursos_model extends CI_Model
     {
         $this->db->set($data);
 
-        if (validarId($id)) {
+        if ($id) {
             $this->db->where('id', $id);
-            return $this->db->update('cursos');
+            $this->db->update('cursos');
+        } else {
+            $this->db->insert('cursos', $data);
         }
 
-        return $this->db->insert('cursos', $data);
+        if ($this->db->affected_rows()) {
+            return true;
+        }
+        return false;
+    }
+
+    public function get($id)
+    {
+        $this->db->select('id, descricao');
+        $this->db->where('id', $id);
+        $this->db->where('deletado', 0);
+        $result = $this->db->get('cursos');
+        if ($result->num_rows()) {
+            return $result->row_array();
+        }
+        return false;
     }
 
     public function listar($params=[])
@@ -21,7 +38,7 @@ class Cursos_model extends CI_Model
         $total = $this->db->count_all_results('cursos');
 
         if ($total) {
-            $this->db->select('id, descricao, DATE_FORMAT(CONVERT_TZ(data_cadastro, "+00:00", "-03:00"), "%d/%m/%Y %H:%i:%s") AS data_cadastro');
+            $this->db->select(sprintf('id, descricao, %s, %s', formataDataSQL('data_cadastro'), formataDataSQL('data_alteracao')));
             $this->db->where('deletado', 0);
 
             if (isset($params['sort']) && isset($params['order'])) {
@@ -39,5 +56,22 @@ class Cursos_model extends CI_Model
         }
         
         return ['total' => 0, 'rows' => []];
+    }
+
+
+    public function deletar($ids=[])
+    {
+        if (is_array($ids) && count($ids)) {
+            $this->db->where_in('id', $ids);
+            $this->db->limit(count($ids));
+            $this->db->set('deletado', 1);
+            $this->db->update('cursos');
+    
+            if ($this->db->affected_rows()) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

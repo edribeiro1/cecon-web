@@ -94,7 +94,7 @@ var TABLE = {
                                     REQUESTER.izitoast({
                                         type: 'error',
                                         title: 'Erro',
-                                        message: 'Erro ao tentar deletar, tente novamente!'
+                                        message: 'Erro ao deletar, tente novamente!'
                                     });
                                     stopLaddaButtons();
                                 }
